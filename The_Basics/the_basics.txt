@@ -1,0 +1,104 @@
+Literals
+  - a literal is any notation that lets you represent a fixed value in soure code
+    - for instance, all of the following are literals in Ruby:
+        'Hello, world!'          // string literal
+        375                      // integer literal
+        3.141528                 // float literal
+        true                     // boolean literal
+        { 'a' => 1, 'b' => 2 }   // hash literal
+        [ 1, 2, 3 ]              // array literal
+        :sym                     // symbol literal
+        nil                      // nil literal
+
+
+
+Strings
+  - a string is a list of characters in a specific sequence
+  - write string literals with either single quotes or double quotes
+
+  - if you'd like to include single quotes within your string then
+    you have two options.  you can either use the double quote method or the single
+    quote method with escaping
+
+    | Ex. 1: with double quotes
+      "The man said, 'Hi there!'"
+
+      Ex. 2: with single quotes and escaping
+      'The man said, \'Hi there!\''
+    |
+      - the backslash, or escape character, tells the computer that the quotes that
+        follow it are not meant as Ruby syntax but only as simple quote characters
+        to be included in the string
+  
+  - double quotes allow for string interpolation
+    - the basic syntax is #{ruby expression goes here}
+
+
+
+Symbols
+  - Ruby symbols are created by placing a colon (:) before a word
+    - examples of symbols:
+    :name
+    :a_symbol
+    :"surprisingly, this is also a symbol"
+  
+  - basically, a symbol is used when you want to reference something like a string
+    but don't ever intend to print it on the screen or change it
+    - it is often referred to as an immutable (i.e. unchangeable) string
+      - not 100% technically correct, but useful for now
+
+
+
+nil
+  - in programming, we need a way to express "nothing", and in Ruby, we do this through
+    something called nil
+  - a variable with a value of nil could be described as having 'nothing' or being
+    'completely empty', or even just simply 'not any specific type'
+  - a situation where this may occur is where output is expected but none is returned,
+    such as:
+    | puts "Hello, World!
+      Hello, World!
+      => nil
+    |
+  
+  - you can explicitly refer to the nil value by using the nil literal in our code:
+    | x = nil |
+  
+  - it is possible to check if something is a nil type by using .nil?
+    | "Hello, World".nil? 
+      => false
+    |
+  
+  - an important property of the nil type is that when used in an expression, such as
+    an if statement, it will be treated as false, as it represents an absense
+    of content
+    | if nil
+        puts "hello, world!"
+      end
+      => nil
+    |
+  
+  - an important caveat
+    | false == nil
+      => false
+    |
+    - while both false and nil are both treated as negative when evaluated in an
+      expression, they are not equivalent
+
+
+
+Expressions and Return
+  - when you type something in at the irb prompt you are creating an expression
+    - an expression is anything that can be evaluated, and pretty much 
+      everything you write in Ruby is an expression
+  
+  - an expression in Ruby always returns something, even if that's an error message
+    or nil
+
+
+
+puts vs return
+  - when we call the puts method, we're telling Ruby to print something to the screen
+    - however, puts does not return what is printed to the screen
+  - expressions do something, but they also return something
+    - the value returns is not necessarily the action that was performed
